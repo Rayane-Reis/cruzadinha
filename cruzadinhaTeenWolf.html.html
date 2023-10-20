@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Palavras Cruzadas</title>
+  <link rel="stylesheet" type="text/css" href="./css/style_Cruzadinha.css">
+</head>
+
+<body>
+  <section class="palavras-cruzadas">
+    <div class="main-palavras">
+      <div class="dicas">
+        <h2>Insira uma palavra: </h2>
+        <input id="input_palavra">
+        <div class="test">
+          <button onclick="correct()">Verificar</button>
+          <button onclick="enviar()">finalizar</button><br><br>
+        </div>
+        <h2 class="subtitulo">Veja as dicas </h2>
+        <select id="dicas" onchange="mostradica()">
+          <option value="1">Dica: 1</option>
+          <option value="2">Dica: 2</option>
+          <option value="3">Dica: 3</option>
+          <option value="4">Dica: 4</option>
+          <option value="5">Dica: 5</option>
+          <option value="6">Dica: 6</option>
+          <option value="7">Dica: 7</option>
+          <option value="8">Dica: 8</option>
+          <option value="9">Dica: 9</option>
+          <option value="10">Dica: 10</option>
+        </select><br>
+        <div id="exibir"></div>
+      </div>
+      <div class="tabela">
+        <table>
+          <tr>
+            <!--  Primeira linha da tabela  -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!--  segunda linha  -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">5</td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- terceira linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="lua_l"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <!-- // quarta linha  -->
+          <tr>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="lua_u"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+
+          <!-- // quinta linha  -->
+          <tr>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">1</td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="lua_a"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+
+          <!-- sexta linha  -->
+          <tr>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="matt_m"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">-</td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- setíma linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="matt_a"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="dos_d"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- oitava linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">2</td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="matt_t"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="dos_o"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- nona linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">3</td>
+            <td class="white" id="scott_s"></td>
+            <td class="white" id="scott_c"></td>
+            <td class="white" id="scott_o"></td>
+            <td class="white" id="scott_t"></td>
+            <td class="white" id="scott_T"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="dos_s"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- décima linha  -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="stiles_t"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">-</td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+
+          </tr>
+          <tr>
+            <!-- décima primeira linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">4</td>
+            <td class="white" id="piter_p"></td>
+            <td class="white" id="piter_i"></td>
+            <td class="white" id="piter_t"></td>
+            <td class="white" id="piter_e"></td>
+            <td class="white" id="piter_r"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="lobos_l"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- décima segunda linha  -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="stiles_l"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="lobos_o"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+
+          <tr>
+            <!-- décima terceira linha  -->
+            <td class="vazio" id="">6</td>
+            <td class="white" id="banshee_b"></td>
+            <td class="white" id="banshee_a"></td>
+            <td class="white" id="banshee_n"></td>
+            <td class="white" id="banshee_s"></td>
+            <td class="white" id="banshee_h"></td>
+            <td class="white" id="banshee_e"></td>
+            <td class="white" id="banshee_E"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">7</td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="lobos_b"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- décima quarta linha  -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">8</td>
+            <td class="white" id="sarcasmo_s"></td>
+            <td class="white" id="sarcasmo_a"></td>
+            <td class="white" id="sarcasmo_r"></td>
+            <td class="white" id="sarcasmo_c"></td>
+            <td class="white" id="sarcasmo_A"></td>
+            <td class="white" id="sarcasmo_S"></td>
+            <td class="white" id="sarcasmo_m"></td>
+            <td class="white" id="sarcasmo_o"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- décima sexta linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">9</td>
+            <td class="white" id="alisson_a"></td>
+            <td class="white" id="alisson_l"></td>
+            <td class="white" id="alisson_i"></td>
+            <td class="white" id="alisson_s"></td>
+            <td class="white" id="alisson_S"></td>
+            <td class="white" id="alisson_o"></td>
+            <td class="white" id="alisson_n"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- vigéssima linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="white" id="alfa_f"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- vigéssima primeira linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id="">10</td>
+            <td class="white" id="omega_o"></td>
+            <td class="white" id="omega_m"></td>
+            <td class="white" id="omega_e"></td>
+            <td class="white" id="omega_g"></td>
+            <td class="white" id="omega_a"></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- vigéssima segunda linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+          <tr>
+            <!-- vigéssima terceira linha -->
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+            <td class="vazio" id=""></td>
+          </tr>
+        </table>
+        
+        <div class="lista" id="styleDicas" style="display: none;">
+          <ul id="Lista_dicas"></ul>
+          <!-- // será a nossa dica atual -->
+        </div>
+      </div>
+  </section>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
